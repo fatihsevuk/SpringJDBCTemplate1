@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="datasourceId" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/deneme"/>
+		<property name="username" value="root" />
+		<property name="password" value="18081991"/>
+		
+	
+	
+	</bean>
+	
+	<bean id="kisiDAOServiceId" class="com.fatih.service.KisiDAOService">
+	
+		<constructor-arg ref="kisiDAOImplId" /> 
+	
+	</bean>
+	
+	<bean id="kisiDAOImplId" class="com.fatih.dao.impl.KisiDAOImpl">
+	
+		<property name="dataSource" ref="datasourceId"/>
+	
+	</bean>
+
+
+
+</beans>
